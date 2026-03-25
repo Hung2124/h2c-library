@@ -4,7 +4,6 @@ import com.library.config.JPAUtil;
 import com.library.model.*;
 import com.library.utils.PasswordUtil;
 import jakarta.persistence.EntityManager;
-import java.util.List;
 
 public class DataSeeder {
 
