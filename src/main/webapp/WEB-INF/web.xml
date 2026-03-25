@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>H2C LIBRARY Management System</display-name>
+
+    <!-- Optional SMTP (or use env MAIL_SMTP_HOST, MAIL_SMTP_USER, MAIL_SMTP_PASSWORD, MAIL_FROM) -->
+    <context-param>
+        <param-name>mail.smtp.host</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>mail.smtp.port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mail.smtp.user</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>mail.smtp.password</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>mail.from</param-name>
+        <param-value></param-value>
+    </context-param>
+    <!-- Gemini 2.5 (stable). API key loaded from environment variable GEMINI_API_KEY -->
+    <context-param>
+        <param-name>gemini.api.key</param-name>
+        <param-value>${env.GEMINI_API_KEY}</param-value>
+    </context-param>
+    <context-param>
+        <param-name>gemini.model</param-name>
+        <param-value>gemini-2.5-flash-lite</param-value>
+    </context-param>
+    <!-- Tuỳ chọn: gemini.model.fallbacks = gemini-2.5-flash,gemini-2.0-flash -->
+    <!-- Tuỳ chọn: gemini.api.versions = v1,v1beta -->
+
+    <!-- Default welcome file: redirect to /home servlet -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Session timeout: 30 minutes -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- Error pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/views/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/views/error/500.jsp</location>
+    </error-page>
+
+</web-app>

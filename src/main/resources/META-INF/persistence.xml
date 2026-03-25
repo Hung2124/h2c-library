@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="SmartLibraryPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entity classes -->
+        <class>com.library.model.User</class>
+        <class>com.library.model.Category</class>
+        <class>com.library.model.Author</class>
+        <class>com.library.model.Book</class>
+        <class>com.library.model.BorrowRequest</class>
+        <class>com.library.model.BorrowRequestDetail</class>
+        <class>com.library.model.Publisher</class>
+        <class>com.library.model.SiteSetting</class>
+        <class>com.library.model.BookReview</class>
+        <class>com.library.model.UserFavorite</class>
+
+        <properties>
+            <!-- DB credentials loaded from environment variables (see .env.example) -->
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:sqlserver://localhost:1433;databaseName=SmartLibraryDB;encrypt=false;trustServerCertificate=true;sendStringParametersAsUnicode=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="${env.DB_USER:sa}"/>
+            <property name="jakarta.persistence.jdbc.password" value="${env.DB_PASSWORD}"/>
+
+            <!-- Hibernate settings -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.SQLServerDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.pool_size" value="10"/>
+        </properties>
+    </persistence-unit>
+</persistence>

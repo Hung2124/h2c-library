@@ -1,0 +1,36 @@
+# Build
+target/
+*.war
+*.ear
+*.class
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.code-workspace
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables — NEVER commit real .env
+.env
+.env.local
+.env.*.local
+
+# Uploaded files
+src/main/webapp/assets/images/uploads/*
+!src/main/webapp/assets/images/uploads/.gitkeep
+
+# Credentials — NEVER commit real API keys or secrets
+# See .env.example for required environment variables
