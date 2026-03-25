@@ -1,6 +1,7 @@
 package com.library.listener;
 
 import com.library.job.OverdueBorrowNotifierJob;
+import com.library.seeder.DataSeeder;
 import com.library.util.SiteSettingsLoader;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
@@ -19,6 +20,17 @@ public class AppStartupListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext ctx = sce.getServletContext();
         SiteSettingsLoader.reload(ctx);
+
+        Thread seederThread = new Thread(() -> {
+            try {
+                DataSeeder.seedIfEmpty();
+            } catch (Exception e) {
+                ctx.log("DataSeeder error: " + e.getMessage());
+            }
+        }, "data-seeder");
+        seederThread.setDaemon(true);
+        seederThread.start();
+
         scheduler = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread t = new Thread(r, "overdue-mail");
             t.setDaemon(true);

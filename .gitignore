@@ -14,6 +14,12 @@ target/
 .project
 .classpath
 .settings/
+nb-configuration.xml
+.claude/
+cursor-debug-logs/
+*.orig
+*~
+*~
 
 # OS
 .DS_Store
@@ -34,3 +40,4 @@ src/main/webapp/assets/images/uploads/*
 
 # Credentials — NEVER commit real API keys or secrets
 # See .env.example for required environment variables
+*.html

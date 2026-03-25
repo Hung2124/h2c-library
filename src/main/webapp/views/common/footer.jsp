@@ -15,12 +15,10 @@
                     Địa chỉ: Đại học FPT - khu công nghệ cao Thạch Hòa, Thạch Thất, Hòa Lạc, Hà Nội
                 </p>
                 <p class="sl-footer-sub mb-1">
-                    SĐT: <a href="tel:0963802061" class="sl-footer-link">096 380 2061</a> /
-                    <a href="tel:0979867145" class="sl-footer-link">0979 867 145</a>
+                    SĐT: <a href="tel:+84-XXX-XXX-XXXX" class="sl-footer-link">XXX XXX XXXX</a>
                 </p>
                 <p class="sl-footer-sub mb-1">
-                    Gmail: <a href="mailto:thank0617@gmail.com" class="sl-footer-link">thank0617@gmail.com</a> /
-                    <a href="mailto:donghung14032000@gmail.com" class="sl-footer-link">donghung14032000@gmail.com</a>
+                    Gmail: <a href="mailto:contact@h2clibrary.edu.vn" class="sl-footer-link">contact@h2clibrary.edu.vn</a>
                 </p>
                 <c:if test="${showYear}">
                     <p class="sl-footer-sub mb-0">&copy; <%= java.time.Year.now() %> H2C LIBRARY. PRJ301 Project.</p>
